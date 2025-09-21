@@ -1,103 +1,175 @@
-import Image from "next/image";
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+      {/* Header */}
+      <header className="container mx-auto px-6 py-8">
+        <nav className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-white">Jonny Cangemi</h1>
+          <div className="flex space-x-6">
+            <Link href="#projects" className="text-gray-300 hover:text-white transition-colors">
+              Projects
+            </Link>
+            <Link href="#about" className="text-gray-300 hover:text-white transition-colors">
+              About
+            </Link>
+            <Link href="#contact" className="text-gray-300 hover:text-white transition-colors">
+              Contact
+            </Link>
+          </div>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <main className="container mx-auto px-6 py-20">
+        <div className="text-center">
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Full Stack
+            <span className="text-blue-400"> Developer</span>
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Building modern web applications with clean code, innovative solutions,
+            and a focus on user experience.
+          </p>
+          <div className="flex justify-center space-x-4">
+            <Link
+              href="#projects"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
+              View Projects
+            </Link>
+            <Link
+              href="https://portfolio-automation-gxvqf66we-jonny-cangemis-projects.vercel.app"
+              className="border border-gray-300 text-gray-300 hover:bg-gray-300 hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors"
+              target="_blank"
+            >
+              Portfolio API
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Projects Section */}
+      <section id="projects" className="container mx-auto px-6 py-20">
+        <h3 className="text-4xl font-bold text-white text-center mb-16">Featured Projects</h3>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Portfolio Automation Project */}
+          <div className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
+            <div className="flex items-center mb-4">
+              <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+              <span className="text-green-400 text-sm font-semibold">LIVE</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-3">Portfolio Automation</h4>
+            <p className="text-gray-300 mb-4">
+              Real-time portfolio tracking system with automated email reports,
+              market data integration, and stealth mode for demos.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm">Node.js</span>
+              <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">PostgreSQL</span>
+              <span className="bg-purple-600 text-white px-2 py-1 rounded text-sm">Supabase</span>
+              <span className="bg-orange-600 text-white px-2 py-1 rounded text-sm">Vercel</span>
+            </div>
+            <div className="flex space-x-3">
+              <Link
+                href="https://portfolio-automation-gxvqf66we-jonny-cangemis-projects.vercel.app"
+                className="text-blue-400 hover:text-blue-300 text-sm font-semibold"
+                target="_blank"
+              >
+                Live API →
+              </Link>
+              <Link
+                href="https://github.com/jcangemi24-canman/Portfolio-Automation"
+                className="text-gray-400 hover:text-gray-300 text-sm font-semibold"
+                target="_blank"
+              >
+                Code →
+              </Link>
+            </div>
+          </div>
+
+          {/* Placeholder for Portfolio Dashboard */}
+          <div className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors opacity-75">
+            <div className="flex items-center mb-4">
+              <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+              <span className="text-yellow-400 text-sm font-semibold">IN DEVELOPMENT</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-3">Portfolio Dashboard</h4>
+            <p className="text-gray-300 mb-4">
+              Interactive React dashboard with real-time charts, portfolio analytics,
+              and public demo mode for showcasing.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm">React</span>
+              <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">Chart.js</span>
+              <span className="bg-purple-600 text-white px-2 py-1 rounded text-sm">TypeScript</span>
+              <span className="bg-orange-600 text-white px-2 py-1 rounded text-sm">Next.js</span>
+            </div>
+            <span className="text-gray-500 text-sm">Coming Soon...</span>
+          </div>
+
+          {/* Placeholder for Future Project */}
+          <div className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors opacity-50">
+            <div className="flex items-center mb-4">
+              <div className="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
+              <span className="text-gray-400 text-sm font-semibold">PLANNED</span>
+            </div>
+            <h4 className="text-xl font-bold text-white mb-3">Next Project</h4>
+            <p className="text-gray-300 mb-4">
+              Future development projects will be showcased here as they come online.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="bg-gray-600 text-white px-2 py-1 rounded text-sm">TBD</span>
+            </div>
+            <span className="text-gray-500 text-sm">Ideas Welcome...</span>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="container mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-4xl font-bold text-white mb-8">About Me</h3>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            I&apos;m a full-stack developer passionate about creating efficient, scalable solutions
+            that solve real-world problems. With expertise in modern web technologies,
+            I focus on building applications that are both powerful and user-friendly.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="container mx-auto px-6 py-20">
+        <div className="text-center">
+          <h3 className="text-4xl font-bold text-white mb-8">Get In Touch</h3>
+          <p className="text-xl text-gray-300 mb-8">
+            Interested in working together or have questions about my projects?
+          </p>
+          <Link
+            href="mailto:jonny@jonnycangemi.com"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-block"
+          >
+            Send Email
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="container mx-auto px-6 py-8 border-t border-gray-800">
+        <div className="flex justify-between items-center">
+          <p className="text-gray-400">© 2024 Jonny Cangemi. All rights reserved.</p>
+          <div className="flex space-x-4">
+            <Link href="https://github.com/jcangemi24-canman" className="text-gray-400 hover:text-white" target="_blank">
+              GitHub
+            </Link>
+            <Link href="https://linkedin.com/in/jonnycangemi" className="text-gray-400 hover:text-white" target="_blank">
+              LinkedIn
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
