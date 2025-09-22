@@ -34,17 +34,16 @@ export default function Home() {
           </p>
           <div className="flex justify-center space-x-4">
             <Link
-              href="#projects"
+              href="/portfolio"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
-              View Projects
+              📊 Live Portfolio
             </Link>
             <Link
-              href="https://portfolio-automation-gxvqf66we-jonny-cangemis-projects.vercel.app"
+              href="#projects"
               className="border border-gray-300 text-gray-300 hover:bg-gray-300 hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors"
-              target="_blank"
             >
-              Portfolio API
+              View Projects
             </Link>
           </div>
         </div>
@@ -74,11 +73,10 @@ export default function Home() {
             </div>
             <div className="flex space-x-3">
               <Link
-                href="https://portfolio-automation-gxvqf66we-jonny-cangemis-projects.vercel.app"
+                href="/portfolio"
                 className="text-blue-400 hover:text-blue-300 text-sm font-semibold"
-                target="_blank"
               >
-                Live API →
+                Dashboard →
               </Link>
               <Link
                 href="https://github.com/jcangemi24-canman/Portfolio-Automation"
