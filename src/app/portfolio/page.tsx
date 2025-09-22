@@ -4,25 +4,26 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 interface PortfolioData {
-  portfolioValue: number
-  totalGainLoss: number
-  totalGainLossPercent: number
-  dayChange: number
-  dayChangePercent: number
-  accounts: Array<{
-    name: string
-    value: number
-    dayChange: number
-    dayChangePercent: number
-  }>
-  topMovers: Array<{
-    symbol: string
-    change: number
-    changePercent: number
-    type: string
-  }>
+  totalValue: number
+  totalGain: number
+  totalPct: number
+  totalCash: number
+  accounts: {
+    [key: string]: {
+      totalValue: number
+      dailyGain: number
+      stockValue: number
+      cash: number
+      holdings: any[]
+    }
+  }
+  topMovers: {
+    gainers: any[]
+    losers: any[]
+  }
   _timestamp?: string
   _cached?: boolean
+  _stealthMode?: boolean
 }
 
 export default function PortfolioPage() {
@@ -31,7 +32,7 @@ export default function PortfolioPage() {
   const [error, setError] = useState<string | null>(null)
   const [stealthMode, setStealthMode] = useState(false)
   const [emailSending, setEmailSending] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  // const [mounted, setMounted] = useState(false)
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -213,9 +214,8 @@ export default function PortfolioPage() {
   }
 
   useEffect(() => {
-    setMounted(true)
     fetchPortfolioData(stealthMode)
-  }, [stealthMode])
+  }, [stealthMode]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
   if (loading) {
@@ -378,7 +378,7 @@ export default function PortfolioPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-700">
-                {Object.entries(portfolioData.accounts || {}).map(([accountKey, account]: [string, any]) => (
+                {Object.entries(portfolioData.accounts || {}).map(([accountKey, account]: [string, any]) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <tr key={accountKey} className="hover:bg-gray-700/50">
                     <td className="px-6 py-4 whitespace-nowrap text-white font-medium">
                       {accountKey === 'selfDirected' ? 'Self-Directed' : accountKey === 'retirement' ? 'Retirement' : accountKey.charAt(0).toUpperCase() + accountKey.slice(1)}
