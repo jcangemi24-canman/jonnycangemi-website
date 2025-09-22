@@ -1,13 +1,16 @@
 import Link from 'next/link'
+import { auth } from '../../auth'
+import ContentGate from '../components/ContentGate'
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
         <nav className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-white">Jonny Cangemi</h1>
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 items-center">
             <Link href="#projects" className="text-gray-300 hover:text-white transition-colors">
               Projects
             </Link>
@@ -17,6 +20,21 @@ export default function Home() {
             <Link href="#contact" className="text-gray-300 hover:text-white transition-colors">
               Contact
             </Link>
+            {session ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-green-400 text-sm">✓ Signed In</span>
+                <Link href="/admin" className="text-blue-400 hover:text-blue-300 transition-colors">
+                  Admin
+                </Link>
+                <Link href="/api/auth/signout" className="text-gray-400 hover:text-white transition-colors">
+                  Sign Out
+                </Link>
+              </div>
+            ) : (
+              <Link href="/auth/signin" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                Sign In
+              </Link>
+            )}
           </div>
         </nav>
       </header>
@@ -130,11 +148,78 @@ export default function Home() {
       <section id="about" className="container mx-auto px-6 py-20">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-4xl font-bold text-white mb-8">About Me</h3>
-          <p className="text-xl text-gray-300 leading-relaxed">
+
+          {/* Public content */}
+          <p className="text-xl text-gray-300 leading-relaxed mb-8">
             I&apos;m a full-stack developer passionate about creating efficient, scalable solutions
             that solve real-world problems. With expertise in modern web technologies,
             I focus on building applications that are both powerful and user-friendly.
           </p>
+
+          {/* Protected detailed content */}
+          <ContentGate
+            requireAuth={true}
+            publicContent={
+              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mt-8">
+                <div className="flex items-center justify-center mb-4">
+                  <span className="text-blue-400 mr-2">🔒</span>
+                  <span className="text-gray-300">Detailed Experience & Skills</span>
+                </div>
+                <p className="text-gray-400 text-sm mb-4">
+                  Access my complete technical background, project case studies, and professional experience.
+                </p>
+                <Link href="/auth/signin" className="text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                  Sign in to view details →
+                </Link>
+              </div>
+            }
+          >
+            <div className="bg-gray-800 rounded-lg p-8 mt-8">
+              <h4 className="text-2xl font-bold text-white mb-6">🚀 Full Technical Background</h4>
+
+              <div className="grid md:grid-cols-2 gap-8 text-left">
+                <div>
+                  <h5 className="text-lg font-semibold text-blue-400 mb-3">Backend Expertise</h5>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Node.js & Express.js production applications</li>
+                    <li>• PostgreSQL database design & optimization</li>
+                    <li>• RESTful API development & security</li>
+                    <li>• Automated testing & CI/CD pipelines</li>
+                    <li>• Cloud deployment (Vercel, AWS)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h5 className="text-lg font-semibold text-green-400 mb-3">Frontend Skills</h5>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• React.js & Next.js 15 applications</li>
+                    <li>• TypeScript for type safety</li>
+                    <li>• Modern CSS (Tailwind, responsive design)</li>
+                    <li>• State management & authentication</li>
+                    <li>• Performance optimization</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-700">
+                <h5 className="text-lg font-semibold text-purple-400 mb-4">Recent Projects Impact</h5>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-400">$47K+</div>
+                    <div className="text-gray-400 text-sm">Portfolio value tracked</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-400">99.9%</div>
+                    <div className="text-gray-400 text-sm">API uptime</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-400">&lt;200ms</div>
+                    <div className="text-gray-400 text-sm">Average response time</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ContentGate>
         </div>
       </section>
 

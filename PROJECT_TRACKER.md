@@ -1,7 +1,7 @@
 # Jonny Cangemi - Master Project Tracker
 
 **Created:** September 21, 2024
-**Last Updated:** September 21, 2024
+**Last Updated:** September 22, 2024
 
 ## 🎯 Active Projects
 
@@ -14,12 +14,12 @@
 - **Purpose:** Real-time portfolio tracking with automated email reports and stealth mode
 
 ### 2. Personal Portfolio Website (Frontend)
-- **Repository:** [jonnycangemi-website](https://github.com/jcangemi24-canman/jonnycangemi-website) *(to be created)*
+- **Repository:** [jonnycangemi-website](https://github.com/jcangemi24-canman/jonnycangemi-website) ✅
 - **Version:** v1.0
 - **Status:** ✅ Production (Live)
 - **Tech Stack:** Next.js 15, TypeScript, Tailwind CSS, Vercel
 - **Production URL:** `https://jonnycangemi-website-rcsnrsc8a-jonny-cangemis-projects.vercel.app`
-- **Custom Domain:** jonnycangemi.com (pending DNS)
+- **Custom Domain:** jonnycangemi.com ✅ LIVE
 - **Purpose:** Professional portfolio showcasing skills and live projects
 
 ## 🚀 Deployment Status
@@ -27,16 +27,16 @@
 | Project | Production URL | Custom Domain | Status |
 |---------|---------------|---------------|---------|
 | Portfolio API | [Live](https://portfolio-automation-nfkyhgeho-jonny-cangemis-projects.vercel.app) | N/A | ✅ Active |
-| Portfolio Website | [Live](https://jonnycangemi-website-rcsnrsc8a-jonny-cangemis-projects.vercel.app) | jonnycangemi.com (pending) | ✅ Active |
+| Portfolio Website | [Live](https://jonnycangemi.com) | jonnycangemi.com ✅ | ✅ Active |
 
 ## 📋 Immediate Action Items
 
 ### High Priority
-- [ ] **Configure Namecheap DNS** for jonnycangemi.com
+- [x] **Configure Namecheap DNS** for jonnycangemi.com
   - Add A record: `@` → `76.76.21.21`
   - Add A record: `www` → `76.76.21.21`
-- [ ] **Create GitHub repository** for jonnycangemi-website
-- [ ] **Push website v1.0** to GitHub
+- [x] **Create GitHub repository** for jonnycangemi-website
+- [x] **Push website v1.0** to GitHub
 
 ### Medium Priority
 - [ ] **Code quality review** of both projects
